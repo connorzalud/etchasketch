@@ -1,0 +1,27 @@
+.grid{
+    border: 1px solid black;
+    
+}
+
+.main-container{
+    height: 600px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+    
+
+}
+
+*{
+    border: 2px solid red;
+}
+
+.grid-container{
+    display:grid;
+    width: 500px;
+    height: 500px;
+    
+}
+
