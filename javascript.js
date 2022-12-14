@@ -1,20 +1,37 @@
-let gridSize = 20
+//let gridSize = 20;
 
 
 const container = document.querySelector(".main-container");
 const gridContainer = document.createElement("div");
 gridContainer.classList.add("grid-container");
-gridContainer.style.gridTemplateColumns=`repeat(${gridSize}, 1fr)`;
-gridContainer.style.gridTemplateRows=`repeat(${gridSize}, 1fr)`;
+//gridContainer.style.gridTemplateColumns=`repeat(${gridSize}, 1fr)`;
+//gridContainer.style.gridTemplateRows=`repeat(${gridSize}, 1fr)`; 
 
+const userGrid = document.querySelector(".grid-choice");
 
-
-for(i=1; i<=gridSize*gridSize; i++){
+/*for (i=1; i<=gridSize*gridSize; i++){
     const box = document.createElement("div");
     box.classList.add("grid");
     gridContainer.append(box);
     container.append(gridContainer);
+}*/
+
+function setGrid(){
+    const newGrid = parseInt(userGrid.value);
+    gridSize = newGrid;
+    gridContainer.style.gridTemplateColumns=`repeat(${gridSize}, 1fr)`;
+    gridContainer.style.gridTemplateRows=`repeat(${gridSize}, 1fr)`;  
+    document.querySelectorAll(".grid").forEach(function(a){
+                a.remove()
+        });
+    for (i=1; i<=gridSize*gridSize; i++){
+        const box = document.createElement("div");
+        box.classList.add("grid");
+        gridContainer.appendChild(box);
+        container.appendChild(gridContainer);
+    }
 }
+
 
 
 /*function createGrid(gridAmount) {
