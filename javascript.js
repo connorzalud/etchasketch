@@ -6,6 +6,7 @@ const gridContainer = document.createElement("div");
 gridContainer.classList.add("grid-container");
 const gridbtn = document.querySelector(".grid-button");
 const bwbtn = document.querySelector(".bw-button");
+const colorbtn = document.querySelector(".color-button");
 
 
 const userGrid = document.querySelector(".grid-choice");
@@ -30,7 +31,7 @@ function setGrid(){
 
 
 
-function makeBlack(){
+/*function makeBlack(){
     bwbtn.addEventListener("click", function(){
         document.querySelectorAll(".grid").forEach(function(a){
             a.addEventListener("mouseover" , function(){
@@ -39,6 +40,38 @@ function makeBlack(){
             
         })
     })
+}*/
+
+function makeBlack2(){
+    bwbtn.addEventListener("click", function(){
+        document.querySelectorAll(".grid").forEach(function(a){
+            a.addEventListener("mouseover" , function(){
+            a.style.backgroundColor = "black" 
+            })
+            
+        })
+    })
+}
+
+
+
+function randomColor(){
+    let color = Math.floor(Math.random()*256);
+    return color
+}
+
+function makeColor(){
+    colorbtn.addEventListener("click", function(){
+        document.querySelectorAll(".grid").forEach(function(a){
+            a.addEventListener("mouseover", function(){
+                a.style.backgroundColor = "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")"
+            })
+        })
+    })
+}
+
+function chooseColor(){
+    
 }
 
 gridbtn.addEventListener("click", function(){
@@ -46,26 +79,10 @@ gridbtn.addEventListener("click", function(){
 })
 
 bwbtn.addEventListener("click", function(){
-    makeBlack();
+    makeBlack2();
 })
 
+colorbtn.addEventListener("click", function(){
+    makeColor();
+})
 
-/*function createGrid(gridAmount) {
-    for (let i = 1; i <= gridAmount; i++) {
-        const row = document.createElement('div');
-        gridContainer.append(row);
-        container.append(gridContainer);
-
-        for (let j = 0; j < gridAmount; j++) {
-            const box = document.createElement('div');
-            box.classList.add('grid');
-           box.style.width = `${1200 / gridAmount}px`;
-           box.style.height = `${500 / gridAmount}px`;
-            row.append(box);
-
-        }
-    }
-}
-
-
-createGrid(5)*/
