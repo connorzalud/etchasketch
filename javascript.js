@@ -1,20 +1,16 @@
-//let gridSize = 20;
+
 
 
 const container = document.querySelector(".main-container");
 const gridContainer = document.createElement("div");
 gridContainer.classList.add("grid-container");
-//gridContainer.style.gridTemplateColumns=`repeat(${gridSize}, 1fr)`;
-//gridContainer.style.gridTemplateRows=`repeat(${gridSize}, 1fr)`; 
+const gridbtn = document.querySelector(".grid-button");
+const bwbtn = document.querySelector(".bw-button");
+
 
 const userGrid = document.querySelector(".grid-choice");
 
-/*for (i=1; i<=gridSize*gridSize; i++){
-    const box = document.createElement("div");
-    box.classList.add("grid");
-    gridContainer.append(box);
-    container.append(gridContainer);
-}*/
+
 
 function setGrid(){
     const newGrid = parseInt(userGrid.value);
@@ -32,6 +28,26 @@ function setGrid(){
     }
 }
 
+
+
+function makeBlack(){
+    bwbtn.addEventListener("click", function(){
+        document.querySelectorAll(".grid").forEach(function(a){
+            a.addEventListener("mouseover" , function(){
+            a.classList.add("grid-black")  
+            })
+            
+        })
+    })
+}
+
+gridbtn.addEventListener("click", function(){
+    setGrid();
+})
+
+bwbtn.addEventListener("click", function(){
+    makeBlack();
+})
 
 
 /*function createGrid(gridAmount) {
