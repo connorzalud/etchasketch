@@ -7,9 +7,10 @@ gridContainer.classList.add("grid-container");
 const gridbtn = document.querySelector(".grid-button");
 const bwbtn = document.querySelector(".bw-button");
 const colorbtn = document.querySelector(".color-button");
-
-
 const userGrid = document.querySelector(".grid-choice");
+const playerChoice = document.querySelector(".color-player");
+const playerbtn = document.querySelector(".player-choice");
+const resetbtn = document.querySelector(".reset");
 
 
 
@@ -30,17 +31,6 @@ function setGrid(){
 }
 
 
-
-/*function makeBlack(){
-    bwbtn.addEventListener("click", function(){
-        document.querySelectorAll(".grid").forEach(function(a){
-            a.addEventListener("mouseover" , function(){
-            a.classList.add("grid-black")  
-            })
-            
-        })
-    })
-}*/
 
 function makeBlack2(){
     bwbtn.addEventListener("click", function(){
@@ -71,7 +61,30 @@ function makeColor(){
 }
 
 function chooseColor(){
-    
+    const playerColor = playerChoice.value;
+    playerbtn.addEventListener("click", function(){
+        document.querySelectorAll(".grid").forEach(function(a){
+            a.addEventListener("mouseover", function(){
+                if (playerColor === "blue"){
+                    a.style.backgroundColor = "blue"
+                } else if (playerColor === "green"){
+                    a.style.backgroundColor = "green"
+                } else if (playerColor === "red"){
+                    a.style.backgroundColor = "red"
+                } else if (playerColor === "yellow"){
+                    a.style.backgroundColor = "yellow"
+                }
+            })
+        })
+    })
+}
+
+function resetColor(){
+    resetbtn.addEventListener("click", function(){
+        document.querySelectorAll(".grid").forEach(function(a){
+            a.style.backgroundColor="white"
+        })
+    })
 }
 
 gridbtn.addEventListener("click", function(){
@@ -86,3 +99,10 @@ colorbtn.addEventListener("click", function(){
     makeColor();
 })
 
+playerbtn.addEventListener("click", function(){
+    chooseColor();
+})
+
+resetbtn.addEventListener("click", function(){
+    resetColor();
+})
