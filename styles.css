@@ -29,3 +29,10 @@
     background-color: black;
 }
 
+.color-player{
+    color: red;
+}
+
+body{
+    height:750px;
+}
