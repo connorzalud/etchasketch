@@ -1,6 +1,6 @@
 
 
-
+let gridSize = 20;
 const container = document.querySelector(".main-container");
 const gridContainer = document.createElement("div");
 gridContainer.classList.add("grid-container");
@@ -22,27 +22,27 @@ function setGrid(){
     document.querySelectorAll(".grid").forEach(function(a){
                 a.remove()
         });
+    
+    if (gridSize >= 101 || gridSize <= 0){
+        alert("Choose a number from 1 - 100.");
+    } else {
     for (i=1; i<=gridSize*gridSize; i++){
         const box = document.createElement("div");
         box.classList.add("grid");
         gridContainer.appendChild(box);
         container.appendChild(gridContainer);
-    }
+    }}
 }
 
 
-
-function makeBlack2(){
-    bwbtn.addEventListener("click", function(){
-        document.querySelectorAll(".grid").forEach(function(a){
+function makeBlack3(){
+     document.querySelectorAll(".grid").forEach(function(a){
             a.addEventListener("mouseover" , function(){
             a.style.backgroundColor = "black" 
             })
             
         })
-    })
 }
-
 
 
 function randomColor(){
@@ -51,18 +51,15 @@ function randomColor(){
 }
 
 function makeColor(){
-    colorbtn.addEventListener("click", function(){
         document.querySelectorAll(".grid").forEach(function(a){
             a.addEventListener("mouseover", function(){
                 a.style.backgroundColor = "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")"
             })
         })
-    })
 }
 
 function chooseColor(){
     const playerColor = playerChoice.value;
-    playerbtn.addEventListener("click", function(){
         document.querySelectorAll(".grid").forEach(function(a){
             a.addEventListener("mouseover", function(){
                 if (playerColor === "blue"){
@@ -76,23 +73,22 @@ function chooseColor(){
                 }
             })
         })
-    })
 }
 
 function resetColor(){
-    resetbtn.addEventListener("click", function(){
         document.querySelectorAll(".grid").forEach(function(a){
             a.style.backgroundColor="white"
         })
-    })
 }
+
+setGrid();
 
 gridbtn.addEventListener("click", function(){
     setGrid();
 })
 
 bwbtn.addEventListener("click", function(){
-    makeBlack2();
+    makeBlack3();
 })
 
 colorbtn.addEventListener("click", function(){
